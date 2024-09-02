@@ -108,6 +108,7 @@ export default function Index() {
 
     const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
+    const textOffset = useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]);
 
     return (
       <div ref={container} className={styles.container}>
@@ -121,9 +122,8 @@ export default function Index() {
                     <div className={styles.pContainer}>
                         <p>
                         {word.split('').map((letter, i) => {
-                            const y = useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]);
                             return (
-                            <motion.span style={{ top: y }} key={`l_${i}`}>
+                            <motion.span style={{ top: textOffset }} key={`l_${i}`}>
                                 {letter}
                             </motion.span>
                             );
