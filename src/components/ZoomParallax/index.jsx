@@ -34,7 +34,7 @@ import Picture32 from '../../../public/images/meme32.png';
 
 import Image from 'next/image';
 import { useScroll, useTransform, motion} from 'framer-motion';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 function randomizePictures() {
     // Array containing Picture2 to Picture32
@@ -116,6 +116,15 @@ export default function Index() {
     const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
     const letterOffset = [useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25])]
 
+    useEffect(() => {
+        setRandomPicture1(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+        setRandomPicture2(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+        setRandomPicture3(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+        setRandomPicture4(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+        setRandomPicture5(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+        setRandomPicture6(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+    }, [])
+    
     return (
       <div ref={container} className={styles.container}>
         <div className={styles.sticky}>
