@@ -22,16 +22,16 @@
                 height: 25vh;
                 .pContainer{
                     position: absolute;                    
-                    top: 100%;
+                    top: 90%;
                     left: 50%;
-                    transform: translate(-50%, -60%);
+                    transform: translate(-50%, -70%);
                     width: 100%;
                     z-index: 100;
                 }
                 p{
                     color: white;
                     text-align: center;
-                    font-size: 1rem;
+                    font-size: 1.2rem;
                     // white-space: nowrap;
                     span{
                         position: relative;
@@ -39,10 +39,33 @@
                 }
                 img{
                     object-fit: cover;
-                    transition: transform 0.3s ease; /* Smooth scaling transition */
+                    transition: transform 0.3s ease; 
 
                 }
                 
+                @media (min-width: 640px) {
+                    p {
+                        font-size: 1.5rem;
+                    }
+                }
+                
+                @media (min-width: 768px) {
+                    p {
+                        font-size: 2rem;
+                    }
+                }
+
+                // @media (min-width: 1024px) {
+                //     p {
+                //         font-size: 2rem;
+                //     }
+                // }
+
+                // @media (min-width: 1280px) {
+                //     p {
+                //         font-size: 2rem;
+                //     }
+                // }
 
             }
             &:nth-of-type(2){
