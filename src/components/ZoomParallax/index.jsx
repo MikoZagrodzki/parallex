@@ -34,7 +34,7 @@ import Picture32 from '../../../public/images/meme32.png';
 
 import Image from 'next/image';
 import { useScroll, useTransform, motion} from 'framer-motion';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 
 function randomizePictures() {
     // Array containing Picture2 to Picture32
@@ -107,8 +107,7 @@ export default function Index() {
     ]
 
     const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
-    const yValues = word.split('').map(() => useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]));
+    const letterOffset = [,useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]),useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25])]
 
     return (
       <div ref={container} className={styles.container}>
@@ -120,26 +119,17 @@ export default function Index() {
                   <Image src={src} fill alt='image' placeholder='blur' />
                   {src === Picture1 && (
                     <div className={styles.pContainer}>
-                        {/* <p>
+                        <p>
                         {word.split('').map((letter, i) => {
-                            const y = useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]);
+                            // const y = useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]);
                             return (
-                            <motion.span style={{ top: y }} key={`l_${i}`}>
+                            <motion.span style={{ top: letterOffset[i] }} key={`l_${i}`}>
                                 {letter}
                             </motion.span>
                             );
                         })}
-                        </p> */}
-                        <p>
-            {word.split('').map((letter, i) => (
-                <motion.span
-                    style={{ top: yValues[i] }}
-                    key={`l_${i}`}
-                >
-                    {letter}
-                </motion.span>
-            ))}
-        </p>
+                        </p>
+                        
                     </div>
                   )}
                 </div>
