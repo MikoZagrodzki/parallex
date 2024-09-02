@@ -81,27 +81,27 @@ export default function Index() {
             scale: scale4
         },
         {
-            src: randomOrderPictures[0],
+            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
             scale: scale5
         },
         {
-            src: randomOrderPictures[1],
+            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
             scale: scale6
         },
         {
-            src: randomOrderPictures[2],
+            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
             scale: scale5
         },
         {
-            src: randomOrderPictures[3],
+            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
             scale: scale6
         },
         {
-            src: randomOrderPictures[4],
+            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
             scale: scale8
         },
         {
-            src: randomOrderPictures[5],
+            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
             scale: scale9
         }
     ]
