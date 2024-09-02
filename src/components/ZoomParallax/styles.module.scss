@@ -22,14 +22,17 @@
                 height: 25vh;
                 .pContainer{
                     position: absolute;                    
-                    top: 80%;
+                    top: 100%;
                     left: 50%;
-                    transform: translate(-50%, -50%);
+                    transform: translate(-50%, -60%);
+                    width: 100%;
+                    z-index: 100;
                 }
                 p{
                     color: white;
-                    font-size: xx-large;
-                    white-space: nowrap;
+                    text-align: center;
+                    font-size: 1rem;
+                    // white-space: nowrap;
                     span{
                         position: relative;
                     }
