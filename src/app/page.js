@@ -20,9 +20,9 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <ZoomParallax />
-            <div className={styles.text}>
-                    {/* <h1>YOOOOOOOOOOOO</h1> */}
-             </div>
+            {/* <div className={styles.text}>
+                    <h1>YOOOOOOOOOOOO</h1>
+             </div> */}
         </main>
     )
 }
