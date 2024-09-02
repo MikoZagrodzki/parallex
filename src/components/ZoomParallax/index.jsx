@@ -34,7 +34,7 @@ import Picture32 from '../../../public/images/meme32.png';
 
 import Image from 'next/image';
 import { useScroll, useTransform, motion} from 'framer-motion';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
 function randomizePictures() {
     // Array containing Picture2 to Picture32
@@ -75,33 +75,40 @@ export default function Index() {
 
     const randomOrderPictures = randomizePictures()
 
+    const [randomPicture1, setRandomPicture1] = useState(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+    const [randomPicture2, setRandomPicture2] = useState(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+    const [randomPicture3, setRandomPicture3] = useState(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+    const [randomPicture4, setRandomPicture4] = useState(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+    const [randomPicture5, setRandomPicture5] = useState(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+    const [randomPicture6, setRandomPicture6] = useState(randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)])
+
     const pictures = [
         {
             src: Picture1,
             scale: scale4
         },
         {
-            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
+            src: randomPicture1,
             scale: scale5
         },
         {
-            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
+            src: randomPicture2,
             scale: scale6
         },
         {
-            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
+            src: randomPicture3,
             scale: scale5
         },
         {
-            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
+            src: randomPicture4,
             scale: scale6
         },
         {
-            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
+            src: randomPicture5,
             scale: scale8
         },
         {
-            src: randomOrderPictures[Math.floor(Math.random() * randomOrderPictures.length)],
+            src: randomPicture6,
             scale: scale9
         }
     ]
