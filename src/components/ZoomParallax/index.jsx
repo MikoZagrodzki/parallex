@@ -56,7 +56,6 @@ function randomizePictures() {
     return pictures;
 }
 
-const word = "MEET THE FAMILY";
 
 
 export default function Index() {
@@ -66,15 +65,15 @@ export default function Index() {
         target: container,
         offset: ['start start', 'end end']
     })
-
+    
     const scale4 = useTransform(scrollYProgress, [0, 1], [4, 1]);
     const scale5 = useTransform(scrollYProgress, [0, 1], [5, 1]);
     const scale6 = useTransform(scrollYProgress, [0, 1], [6, 1]);
     const scale8 = useTransform(scrollYProgress, [0, 1], [8, 1]);
     const scale9 = useTransform(scrollYProgress, [0, 1], [9, 1]);
-
+    
     const randomOrderPictures = randomizePictures()
-
+    
     const pictures = [
         {
             src: Picture1,
@@ -105,13 +104,22 @@ export default function Index() {
             scale: scale9
         }
     ]
-
+    
     const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
+    
+    const word = "MEET THE FAMILY";
 
     function textOffset () {return  useTransform(scrollYProgress, [1, 0], [0, Math.floor(Math.random() * -75) - 25]);}
 
+    const letters = word.split(''); 
+
+    const wordArray = letters.map(letter => ({
+        letter: letter,
+        top: textOffset()
+      }));
+    
     return (
-      <div ref={container} className={styles.container}>
+        <div ref={container} className={styles.container}>
         <div className={styles.sticky}>
           {pictures.map(({ src, scale }, index) => {
             return (
@@ -121,9 +129,9 @@ export default function Index() {
                   {src === Picture1 && (
                     <div className={styles.pContainer}>
                         <p>
-                        {word.split('').map((letter, i) => {
+                        {wordArray.map(({letter, top}, i) => {
                             return (
-                            <motion.span style={{ top: textOffset() }} key={`l_${i}`}>
+                            <motion.span style={{ top: top }} key={`l_${i}`}>
                                 {letter}
                             </motion.span>
                             );
